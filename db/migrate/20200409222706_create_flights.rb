@@ -4,8 +4,8 @@ class CreateFlights < ActiveRecord::Migration[5.2]
       t.datetime :date
       t.integer :duration
       t.integer :price
-      t.reference :from_airport
-      t.reference :to_airport
+      t.references :from_airport
+      t.references :to_airport
 
       t.timestamps
     end
