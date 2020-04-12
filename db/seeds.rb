@@ -46,9 +46,13 @@ name: "Tokyo Haneda Airport",
 airport_code: "HND",
 location: "Tokyo, Japan") 
 
-
-
-" John F. Kennedy International Airport", location: "New York, United States"
-
-"Los Angeles International Airport"
-"Hartsfield–Jackson Atlanta International Airport"
+100.times do
+  airports = Airport.order(Arel.sql('RANDOM()'))
+  Flight.create(
+    date: (Time.now - rand(15552000)).strftime('%m/%d/%Y %I:%M:%S %p'),
+    duration: rand(2..10),
+    price: rand(150..600),
+    from_airport: airports[0],
+    to_airport: airports[1]
+  )
+end
