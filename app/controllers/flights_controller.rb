@@ -1,13 +1,8 @@
 class FlightsController < ApplicationController
-  def new
-  end
-
-  def create
-  end
-
+  
   def index
-  end
-
-  def show
+    @airports = Airport.all.map{ |a| [ a.location, a.id] }
+    @flights = Flight.where(from_airport: params[:from], 
+      to_airport_id: params[:to])
   end
 end

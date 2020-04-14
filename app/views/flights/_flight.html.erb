@@ -1,0 +1,19 @@
+<div class="row col-16" id="flight-box">
+  <div class="col-10">
+    <h5>Flight ID: <%= flight.id %></h5>
+    <h5>Flight Date: <%= flight.date %></h5>
+    <h5>Departing From: <%= flight.from_airport.name %></h5>
+    <h5>Arriving In: <%= flight.from_airport.name %></h5>
+    <h5>Duration: <%= flight.duration %> Hours</h5>
+  </div>
+  
+  <div class="col">
+    <h5>Price: $<%= flight.price %></h5>
+    <%= form_with url: new_booking_path, method: :get, local: true do |f| %>
+    <%= hidden_field_tag(:passengers, params["passengers"]) %>
+    <%= f.button 'Book Flight!', class: "btn btn-info btn-lg", 
+    value: flight.id, name: 'flight_id' %>
+    <%end%>
+  </div>
+</div>
+

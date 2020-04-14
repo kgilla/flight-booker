@@ -1,0 +1,29 @@
+<br/>
+
+<div class="passenger-group">
+  <%= form_for @booking do |f| %>
+    <% passenger_count = 1 %>
+    
+    <div class="form-group">
+    <%= f.fields_for :passengers do |p| %>
+      <div class="card-header">
+        <h4>Passenger # <%=passenger_count%></h4>
+      </div>
+  
+      <%= p.label 'Name:' %>
+      <%= p.text_field :name, class: "form-control" %>
+
+      <%= p.label 'Email:' %>
+      <%= p.text_field :email, class: "form-control" %>
+      
+      <%passenger_count += 1%>
+    
+    </div>
+    <% end %>
+    
+    <br/>
+    <%= f.hidden_field(:flight_id, value: @flight.id) %>
+    <%= f.submit class: "btn btn-info btn-lg" %>
+  <% end %>
+</div>
+

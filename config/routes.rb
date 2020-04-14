@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
-  root 'pages#home'
-  get 'flights/new'
-  get 'flights/create'
-  get 'flights/index'
-  get 'flights/show'
-  get 'airports/create'
-  resources :airports
+  root 'flights#index'
   resources :flights 
+  resources :bookings
 end

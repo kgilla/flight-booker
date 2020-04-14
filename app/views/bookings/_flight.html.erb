@@ -1,0 +1,16 @@
+
+<div class="card">
+<div class="card-header">
+<h5>Flight #<%= @flight.id %>  ||  <%= @flight.from_airport.airport_code %>
+--> <%= @flight.to_airport.airport_code %></h5>
+</div>
+<div class="card-body">
+  <h5 class="card-title">Flight Date: <%= @flight.date %></h5>
+  <h5 class="card-title">Departing From: <%= @flight.from_airport.name %></h5>
+  <h5 class="card-title">Arriving In: <%= @flight.to_airport.name %></h5>
+  <h5 class="card-title">Duration: <%= @flight.duration %> Hours</h5>
+  <h5 class="card-title">Price: $<%= @flight.price %></h5>
+</div>
+</div>
+
+

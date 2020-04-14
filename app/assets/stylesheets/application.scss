@@ -16,3 +16,37 @@
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+body {
+  margin: 0 10% 0 10%
+}
+
+.title-link {
+  font-weight: bold;
+  text-align: center;
+  font-size: 4rem;
+  background-color: cadetblue;
+
+  a {
+    color: black;
+  }
+
+  &:hover {
+    color: black;
+    text-decoration: underline;
+  }
+}
+
+#search-form {
+  text-align: center;
+  font-size: 1.5rem;
+  border: solid grey 1px;
+  padding: 2%;
+  background-color: #e67e22;
+}
+
+#flight-box {
+  margin: 2%;
+  padding: 1%;
+  border-bottom: cadetblue solid 1px;
+}

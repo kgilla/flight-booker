@@ -14,7 +14,7 @@ location: "Toronto, Canada")
 Airport.create(
 name: "Dubai International Airport", 
 airport_code: "DXB",
-location: "A, United States")
+location: "Dubai, United Arab Emirates")
 
 Airport.create(
 name: "O'Hare International Airport", 
@@ -46,10 +46,20 @@ name: "Tokyo Haneda Airport",
 airport_code: "HND",
 location: "Tokyo, Japan") 
 
-100.times do
+Airport.create(
+  name: "Frankfurt Airport", 
+  airport_code: "FRA",
+  location: "Frankfurt, Germany") 
+
+Airport.create(
+  name: "Istanbul Airport", 
+  airport_code: "IST",
+  location: "Istanbul, Turkey") 
+
+600.times do
   airports = Airport.order(Arel.sql('RANDOM()'))
   Flight.create(
-    date: (Time.now - rand(15552000)).strftime('%m/%d/%Y %I:%M:%S %p'),
+    date: (Time.now + rand(2592000)).strftime('%Y/%m/%d %I:%M:%S %p'),
     duration: rand(2..10),
     price: rand(150..600),
     from_airport: airports[0],
