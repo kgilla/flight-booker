@@ -1,0 +1,11 @@
+Thanks for booking with FlightBooker, <%= @passenger.name %>
+===============================================
+ 
+Here are your flight details:
+   
+- Flight Date: <%= @flight.date %>
+- Departing From: <%= @flight.from_airport.name %>
+- Arriving In: <%= @flight.to_airport.name %>
+- Duration: <%= @flight.duration %> Hours
+- Price: $<%= @flight.price %>
+    

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thanks for booking with FlightBooker, <%= @passenger.name %></h1>
+    <h2>Here are your flight details:</h2>
+    <div class="card-body">
+      <h5 class="card-title">Flight Date: <%= @flight.date %></h5>
+      <h5 class="card-title">Departing From: <%= @flight.from_airport.name %></h5>
+      <h5 class="card-title">Arriving In: <%= @flight.to_airport.name %></h5>
+      <h5 class="card-title">Duration: <%= @flight.duration %> Hours</h5>
+      <h5 class="card-title">Price: $<%= @flight.price %></h5>
+    </div>
+  </body>
+</html>

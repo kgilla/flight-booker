@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(passenger_params)
     if @booking.save
+      PassengerMailer.with(booking: @booking).thank_you_email.deliver_now
       redirect_to booking_path(@booking.id)
     else 
       redirect_to root_path
