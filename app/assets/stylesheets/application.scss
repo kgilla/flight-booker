@@ -58,7 +58,9 @@ body {
 }
 
 #main-footer {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 4rem;
   margin-top: 2rem;
 }

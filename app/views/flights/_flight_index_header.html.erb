@@ -1,27 +1,28 @@
 <header id="flight-index-header">
   <div id="flight-index-header-left">
     <h2>Search Results</h2>
-    <p> <%= @flights[0].from_airport.name %> to <%= @flights[0].to_airport.name %></p>
+    <h6>Departing from: <%=@flights[0].from_airport.name %></h6>
+    <h6>Arriving in: <%= @flights[0].to_airport.name %></h6>
   </div>
   <form method="get" url='search/'> 
     <input type="hidden" name="from" value="<%=@params[:from]%>" />
     <input type="hidden" name="to" value="<%=@params[:to]%>"/>
     <input type="hidden" name="passengers" value="<%=@params[:passengers]%>" />
     <div class="form-group">
-      <label for="option">Order By</label>
+      <label for="option">Filter Results</label>
       <select name="option" class="form-control" onChange={this.form.submit()}>
         <% if @params[:option] === "price" %>
-          <option value="date">Earliest</option>
-          <option value="price" selected="selected">Cheapest</option>
-          <option value="duration">Quickest</option>
+          <option value="date">Earliest First</option>
+          <option value="price" selected="selected">Cheapest First</option>
+          <option value="duration">Quickest First</option>
         <% elsif @params[:option] === "duration" %>
-          <option value="date">Earliest</option>
-          <option value="price">Cheapest</option>
-          <option value="duration" selected="selected">Quickest</option>
+          <option value="date">Earliest First</option>
+          <option value="price">Cheapest First</option>
+          <option value="duration" selected="selected">Quickest First</option>
         <% else %>
-          <option value="date" selected="selected">Earliest</option>
-          <option value="price">Cheapest</option>
-          <option value="duration">Quickest</option>
+          <option value="date" selected="selected">Earliest First</option>
+          <option value="price">Cheapest First</option>
+          <option value="duration">Quickest First</option>
         <%end%>
       </select>
     </div>

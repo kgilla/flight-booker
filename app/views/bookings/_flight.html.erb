@@ -1,23 +1,32 @@
-
 <div class="flight-details">
   <header class="details-header">
-    <h5><%= @flight.from_airport.name %> to <%= @flight.to_airport.name %>
+    <h6><%= @flight.from_airport.name %> to <%= @flight.to_airport.name %>
     (<%= @flight.from_airport.airport_code %>
       <i class="fas fa-arrow-right"></i> 
       <%= @flight.to_airport.airport_code %>)
-    </h5>
+    </h6>
   </header>
   <main class="details-main">
     <div class="flight-card-detail"> 
-      <p><%= @flight.date.strftime("%d/%m/%Y - %I:%M %p") %></p>     
-      <label class="flight-card-label">Date/Time</label>
+      <p><%= @flight.date.strftime("%d/%m/%Y") %></p>     
+      <label class="flight-card-label">Date</label>
+    </div>
+    <div class="flight-card-detail"> 
+      <p><%= @flight.date.strftime("%H:%M - ")%><%=endTime(@flight)%></p>     
+      <label class="flight-card-label">Flight Time</label>
     </div>
     <div class="flight-card-detail">  
       <p><%= @flight.airline %></p>    
       <label class="flight-card-label">Airline</label>
     </div>
     <div class="flight-card-detail"> 
-      <p><%= @flight.layovers %></p>     
+      <% if @flight.layovers === 0 %>
+        <p>Non-Stop</p>
+      <%elsif @flight.layovers === 1%>    
+        <p><%= @flight.layovers%> Stop</p> 
+      <%else%>
+        <p><%= @flight.layovers%> Stops</p> 
+      <%end%>     
       <label class="flight-card-label">Layovers</label>
     </div>
     <div class="flight-card-detail">  
@@ -25,7 +34,7 @@
       <label class="flight-card-label">Duration</label>
     </div>
     <div class="flight-card-detail">  
-      <p>$<%= @flight.price %></p>    
+      <p>$<%= @totalPrice %></p>    
       <label class="flight-card-label">Price</label>
     </div>
   </main>

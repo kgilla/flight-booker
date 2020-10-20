@@ -7,7 +7,7 @@
   <div class="flight-container">
     <div class="flight-card-details">
       <div class="flight-card-detail">
-        <p><%= flight.date.strftime("%H:%M") %> - <%= (flight.date + flight.duration.to_i * 60 * 60).strftime("%H:%M") %></p>
+        <p><%= flight.date.strftime("%H:%M") %> - <%= endTime(flight) %></p>
         <label class="flight-card-label"><%= flight.airline %></label>
       </div>
       <div class="flight-card-detail"> 
@@ -24,7 +24,7 @@
         <label class="flight-card-label"><%= @flights[0].from_airport.airport_code %><i class="fas fa-arrow-right ml-1 mr-1"></i><%= @flights[0].to_airport.airport_code %></label>
       </div>
       <div class="flight-card-detail">     
-        <p>$<%= flight.price %></p> 
+        <p>$<%= priceAdjuster(flight, params) %></p> 
       </div>
       <%= f.submit "Select", class: "btn btn-primary flight-card-button" %>
     </div>
