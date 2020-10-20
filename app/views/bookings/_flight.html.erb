@@ -1,16 +1,26 @@
 
-<div class="card">
-<div class="card-header">
-<h5>Flight #<%= @flight.id %>  ||  <%= @flight.from_airport.airport_code %>
---> <%= @flight.to_airport.airport_code %></h5>
-</div>
-<div class="card-body">
-  <h5 class="card-title">Flight Date: <%= @flight.date %></h5>
-  <h5 class="card-title">Departing From: <%= @flight.from_airport.name %></h5>
-  <h5 class="card-title">Arriving In: <%= @flight.to_airport.name %></h5>
-  <h5 class="card-title">Duration: <%= @flight.duration %> Hours</h5>
-  <h5 class="card-title">Price: $<%= @flight.price %></h5>
-</div>
+<div class="flight-details">
+  <header class="details-header">
+    <h5><%= @flight.from_airport.name %> to <%= @flight.to_airport.name %>
+    (<%= @flight.from_airport.airport_code %>
+      <i class="fas fa-arrow-right"></i> 
+      <%= @flight.to_airport.airport_code %>)
+    </h5>
+  </header>
+  <main class="details-main">
+    <div class="flight-card-labels">
+      <label class="flight-card-label">Date/Time</label>
+      <label class="flight-card-label">Airline</label>
+      <label class="flight-card-label">Layovers</label>
+      <label class="flight-card-label">Duration</label>
+    </div>
+    <div class="flight-card-details">
+      <p><%= @flight.date.strftime("%d/%m/%Y - %I:%M %p") %></p>
+      <p><%= @flight.airline %></p>
+      <p><%= @flight.layovers %></p>
+      <p><%= @flight.duration %> Hours</p>
+    </div>
+  </main>
 </div>
 
 

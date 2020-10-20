@@ -1,17 +1,23 @@
-<div class="row col-16" id="flight-box">
-  <div class="col-10">
-    <h5><strong>Flight ID: </strong><%= flight.id %></h5>
-    <h5><strong>Flight Date: </strong><%= flight.date %></h5>
-    <h5><strong>Departing From: </strong><%= flight.from_airport.name %></h5>
-    <h5><strong>Arriving In: </strong><%= flight.to_airport.name %></h5>
-    <h5><strong>Duration: </strong><%= flight.duration %> Hours</h5>
+<div class="flight-container">
+  <div class="flight-card-left">
+    <div class="flight-card-labels">
+      <label class="flight-card-label">Date/Time</label>
+      <label class="flight-card-label">Airline</label>
+      <label class="flight-card-label">Layovers</label>
+      <label class="flight-card-label">Duration</label>
+    </div>
+    <div class="flight-card-details">
+      <p><%= flight.date.strftime("%d/%m/%Y - %I:%M %p") %></p>
+      <p><%= flight.airline %></p>
+      <p><%= flight.layovers %></p>
+      <p><%= flight.duration %> Hours</p>
+    </div>
   </div>
-  
-  <div class="col">
-    <h5><strong>Price: </strong>$<%= flight.price %></h5>
+  <div class="flight-card-right">
+    <h5 id="flight-card-price">$<%=flight.price %></h5>
     <%= form_with url: new_booking_path, method: :get, local: true do |f| %>
     <%= hidden_field_tag(:passengers, params["passengers"]) %>
-    <%= f.button 'Book Flight!', class: "btn btn-info btn-lg", 
+    <%= f.button 'Book Flight!', class: "btn btn-primary", 
     value: flight.id, name: 'flight_id' %>
     <%end%>
   </div>

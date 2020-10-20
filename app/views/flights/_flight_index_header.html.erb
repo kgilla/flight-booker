@@ -1,0 +1,33 @@
+<header id="flight-index-header">
+  <div id="flight-index-header-left">
+    <h2>Search Results</h2>
+    <p> <%= @flights[0].from_airport.name %> to <%= @flights[0].to_airport.name %>
+      (<%= @flights[0].from_airport.airport_code %><i class="fas fa-arrow-right ml-3 mr-3"></i><%= @flights[0].to_airport.airport_code %>)
+    </p>
+  
+  </div>
+  <form method="get" url='search/'> 
+    <input type="hidden" name="from" value="<%=@params[:from]%>" />
+    <input type="hidden" name="to" value="<%=@params[:to]%>"/>
+    <input type="hidden" name="passengers" value="<%=@params[:passengers]%>" />
+    <div class="form-group">
+      <label for="option">Order By</label>
+      <select name="option" class="form-control" onChange={this.form.submit()}>
+        <% if @params[:option] === "price" %>
+          <option value="date">Earliest</option>
+          <option value="price" selected="selected">Cheapest</option>
+          <option value="duration">Quickest</option>
+        <% elsif @params[:option] === "duration" %>
+          <option value="date">Earliest</option>
+          <option value="price">Cheapest</option>
+          <option value="duration" selected="selected">Quickest</option>
+        <% else %>
+          <option value="date" selected="selected">Earliest</option>
+          <option value="price">Cheapest</option>
+          <option value="duration">Quickest</option>
+        <%end%>
+      </select>
+    </div>
+  </form>
+</header>
+  

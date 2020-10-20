@@ -15,33 +15,55 @@
  */
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
+$primary: #3498db;
 @import "bootstrap";
 
 body {
-  margin: 0 10% 0 10%
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #f3f3f3;
 }
 
-#search-form {
-  text-align: center;
-  font-size: 1.5rem;
-  border-bottom: solid cadetblue 5px;
-  padding: 2%;
-  margin: 0 auto;
+#main-header {
+  height: 4rem;
+  padding: 1rem;
+  background-color: #16a085;
 }
 
-#flight-box {
-  margin: 2%;
-  padding: 1%;
-  border-bottom: cadetblue solid 1px;
+.heading {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
 }
 
-label {
-  display: inline-block;
-  margin-top: 3px;
-  margin-right: 5px;
+.heading:hover {
+  color: #fff;
+  filter: brightness(90%);
 }
 
-select {
-  width: 300px;
-  margin: 10px;
+.heading:hover #plane {
+  color: #fff;
+  filter: brightness(90%);
+}
+
+#plane {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+#main {
+  min-height: calc(100vh - 4rem);
+  width: 100vw;
+}
+
+#main-footer {
+  display: block;
+  height: 4rem;
+  margin-top: 2rem;
+}
+
+.icon-link {
+  color: #fff;
+  font-size: 2.5rem;
 }

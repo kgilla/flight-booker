@@ -1,3 +1,103 @@
 // Place all the styles related to the flights controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#search-container {
+  min-height: calc(100vh - 4rem);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+      rgba($color: #000, $alpha: 0.1),
+      rgba($color: #000, $alpha: 0.1)
+    ),
+    asset-url("jerry-zhang-OnXvKZldSJ0-unsplash.jpg");
+}
+
+#main-form {
+  width: 100%;
+  max-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 0.1rem solid #aaa;
+  border-radius: 0.5rem;
+  background-color: #f3f3f3;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+#main-form input:hover {
+  cursor: pointer;
+}
+
+.form-heading {
+  text-align: center;
+}
+
+#flight-index {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.flight-container {
+  display: grid;
+  grid-template-columns: 1fr 10rem;
+  padding: 0 1rem;
+  border: 0.1rem solid #ddd;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.flight-container:hover {
+  border: 0.1rem solid #444;
+}
+
+#flight-index-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flight-card-left {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.flight-card-labels,
+.flight-card-details {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-content: center;
+}
+
+.flight-card-labels {
+  border-bottom: 0.1rem solid #eee;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.flight-card-details {
+  padding: 0.5rem 0;
+  color: #444;
+}
+
+.flight-card-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-left: 0.1rem solid #eee;
+}
+
+#flight-card-price {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+}
