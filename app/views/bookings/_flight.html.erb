@@ -8,17 +8,25 @@
     </h5>
   </header>
   <main class="details-main">
-    <div class="flight-card-labels">
+    <div class="flight-card-detail"> 
+      <p><%= @flight.date.strftime("%d/%m/%Y - %I:%M %p") %></p>     
       <label class="flight-card-label">Date/Time</label>
+    </div>
+    <div class="flight-card-detail">  
+      <p><%= @flight.airline %></p>    
       <label class="flight-card-label">Airline</label>
+    </div>
+    <div class="flight-card-detail"> 
+      <p><%= @flight.layovers %></p>     
       <label class="flight-card-label">Layovers</label>
+    </div>
+    <div class="flight-card-detail">  
+      <p><%= @flight.duration %> Hours</p>    
       <label class="flight-card-label">Duration</label>
     </div>
-    <div class="flight-card-details">
-      <p><%= @flight.date.strftime("%d/%m/%Y - %I:%M %p") %></p>
-      <p><%= @flight.airline %></p>
-      <p><%= @flight.layovers %></p>
-      <p><%= @flight.duration %> Hours</p>
+    <div class="flight-card-detail">  
+      <p>$<%= @flight.price %></p>    
+      <label class="flight-card-label">Price</label>
     </div>
   </main>
 </div>

@@ -1,25 +1,33 @@
-<div class="flight-container">
-  <div class="flight-card-left">
-    <div class="flight-card-labels">
-      <label class="flight-card-label">Date/Time</label>
-      <label class="flight-card-label">Airline</label>
-      <label class="flight-card-label">Layovers</label>
-      <label class="flight-card-label">Duration</label>
-    </div>
+<%= form_with url: new_booking_path, method: :get, local: true do |f| %>
+<%= hidden_field_tag(:passengers, params["passengers"]) %>
+<%= hidden_field_tag(:flight_id, flight.id) %>
+  <header class="flight-header">
+  <h6 class="header-date"><%=flight.date.strftime("%B %dst, %Y") %></h6>
+  </header>
+  <div class="flight-container">
     <div class="flight-card-details">
-      <p><%= flight.date.strftime("%d/%m/%Y - %I:%M %p") %></p>
-      <p><%= flight.airline %></p>
-      <p><%= flight.layovers %></p>
-      <p><%= flight.duration %> Hours</p>
+      <div class="flight-card-detail">
+        <p><%= flight.date.strftime("%H:%M") %> - <%= (flight.date + flight.duration.to_i * 60 * 60).strftime("%H:%M") %></p>
+        <label class="flight-card-label"><%= flight.airline %></label>
+      </div>
+      <div class="flight-card-detail"> 
+        <% if flight.layovers === 0 %>
+          <p>Non-Stop</p>
+        <%elsif flight.layovers === 1%>    
+          <p><%= flight.layovers%> Stop</p> 
+        <%else%>
+          <p><%= flight.layovers%> Stops</p> 
+        <%end%>    
+      </div>
+      <div class="flight-card-detail">     
+        <p><%= flight.duration %> Hours</p> 
+        <label class="flight-card-label"><%= @flights[0].from_airport.airport_code %><i class="fas fa-arrow-right ml-1 mr-1"></i><%= @flights[0].to_airport.airport_code %></label>
+      </div>
+      <div class="flight-card-detail">     
+        <p>$<%= flight.price %></p> 
+      </div>
+      <%= f.submit "Select", class: "btn btn-primary flight-card-button" %>
     </div>
   </div>
-  <div class="flight-card-right">
-    <h5 id="flight-card-price">$<%=flight.price %></h5>
-    <%= form_with url: new_booking_path, method: :get, local: true do |f| %>
-    <%= hidden_field_tag(:passengers, params["passengers"]) %>
-    <%= f.button 'Book Flight!', class: "btn btn-primary", 
-    value: flight.id, name: 'flight_id' %>
-    <%end%>
-  </div>
-</div>
+<%end%>
 
