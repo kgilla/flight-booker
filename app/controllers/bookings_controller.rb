@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @flight = @booking.flight
     @passengers = @booking.passengers.all
+    @totalPrice = @flight.price * @passengers.length
   end
 
   private

@@ -2,14 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#passenger-forms {
+#passenger-forms,
+#passenger-container {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
 
-.passenger-form {
+.passenger-form,
+.passenger-details {
   border: 0.1rem solid #ddd;
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -32,6 +34,10 @@
 .details-main {
   display: grid;
   padding: 1rem;
+}
+
+.passenger-main h6 {
+  font-weight: 700;
 }
 
 .details-header,
@@ -62,7 +68,8 @@
     gap: 1rem;
   }
 
-  #passenger-forms {
+  #passenger-forms,
+  #passenger-container {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
@@ -78,7 +85,8 @@
     gap: 1rem;
   }
 
-  #passenger-forms {
+  #passenger-forms,
+  #passenger-container {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
@@ -93,7 +101,8 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
-  #passenger-forms {
+  #passenger-forms,
+  #passenger-container {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
   }
