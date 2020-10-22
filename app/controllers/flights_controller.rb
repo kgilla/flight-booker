@@ -8,6 +8,8 @@ class FlightsController < ApplicationController
       flash[:danger] = "Please enter two different airports."
       redirect_to root_url
     else
+      @totalFlights = Flight.where(from_airport: params[:from], 
+        to_airport_id: params[:to])
       @flights = Flight.where(from_airport: params[:from], 
         to_airport_id: params[:to]).order(params[:option] || :date).paginate(:page => params[:page], :per_page => 10)
       @params = {
