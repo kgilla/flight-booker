@@ -28,7 +28,7 @@
   padding: 1rem;
   border: 0.1rem solid #aaa;
   border-radius: 0.5rem;
-  background-color: #f3f3f3;
+  background-color: rgba($color: #f3f3f3, $alpha: 0.9);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
@@ -59,7 +59,7 @@
 
 .flight-header {
   width: fit-content;
-  padding: 0.25rem;
+  padding: 0.25rem 1rem;
   border-radius: 0.5rem 0.5rem 0 0;
   color: #fff;
   background-color: #16a085;
@@ -170,7 +170,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   html {
     font-size: 18px;
   }

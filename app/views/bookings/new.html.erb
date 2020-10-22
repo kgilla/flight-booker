@@ -1,6 +1,16 @@
 <div class="container mt-5">
-  <h2>Flight Overview</h2>
+  <input
+      class="btn btn-outline-secondary"
+      action="action"
+      onclick="window.history.go(-1); return false;"
+      type="submit"
+      value="<< Go Back"
+  />
+  <h2 class="mt-3">Flight Overview</h2>
+  <p class="mt-3">Departing from: <%= @flight.from_airport.name %></p>
+  <p class="mb-3">Arriving in: <%= @flight.to_airport.name %></p>
   <%= render 'bookings/flight'%>
   <h2 class="mt-5">Passenger Details</h2>
+  <h6>Please fill out the following fields for each passenger to ensure faster boarding times.</h6>
   <%= render 'bookings/passenger'%>
 </div>

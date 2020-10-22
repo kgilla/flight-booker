@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_04_13_203004) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "airports", force: :cascade do |t|
     t.string "name"
     t.string "airport_code"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_203004) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "flight_id"
+    t.bigint "flight_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["flight_id"], name: "index_bookings_on_flight_id"
@@ -33,8 +36,8 @@ ActiveRecord::Schema.define(version: 2020_04_13_203004) do
     t.integer "duration"
     t.integer "price"
     t.integer "layovers"
-    t.integer "from_airport_id"
-    t.integer "to_airport_id"
+    t.bigint "from_airport_id"
+    t.bigint "to_airport_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["from_airport_id"], name: "index_flights_on_from_airport_id"
@@ -44,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_203004) do
   create_table "passengers", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.integer "booking_id"
+    t.bigint "booking_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["booking_id"], name: "index_passengers_on_booking_id"

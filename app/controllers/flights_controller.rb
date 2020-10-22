@@ -9,7 +9,7 @@ class FlightsController < ApplicationController
       redirect_to root_url
     else
       @flights = Flight.where(from_airport: params[:from], 
-        to_airport_id: params[:to]).order(params[:option] || :date)
+        to_airport_id: params[:to]).order(params[:option] || :date).paginate(:page => params[:page], :per_page => 10)
       @params = {
         to: params[:to],
         from: params[:from],

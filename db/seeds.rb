@@ -59,7 +59,7 @@ Airport.create(
 airlines = [
   "Air Kgilla", "Semi-Reliable Flights", "Viking Air", "Flying 101", "Heavy Metal Aviation", "Cloud Nine", "Mile High Club", "Grounded Airlines", "Migraine Air"]
 
-1000.times do
+5000.times do
   airports = Airport.order(Arel.sql('RANDOM()'))
   Flight.create(
     date: (Time.now + rand(2592000)).strftime('%Y/%m/%d %I:%M:%S %p'),

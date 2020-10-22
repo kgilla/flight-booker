@@ -17,6 +17,9 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 $primary: #3498db;
 @import "bootstrap";
+@import "./bookings.scss";
+@import "./flights.scss";
+@import "./pagination.scss";
 
 * {
   box-sizing: border-box;
